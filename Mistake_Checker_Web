@@ -1,0 +1,76 @@
+import { useState } from "react";
+
+export default function MistakeChecker() {
+  const [inputs, setInputs] = useState(["", "", "", ""]);
+  const [result, setResult] = useState("");
+
+  const handleInputChange = (index, value) => {
+    const updated = [...inputs];
+    updated[index] = value;
+    setInputs(updated);
+  };
+
+  const handleCheck = () => {
+    const allNumbers = inputs
+      .flatMap((line) =>
+        line
+          .split(/[,\s]+/)
+          .map((v) => v.trim())
+          .filter((v) => v !== "")
+      );
+
+    const count = {};
+    for (const num of allNumbers) {
+      count[num] = (count[num] || 0) + 1;
+    }
+
+    const overThree = Object.entries(count)
+      .filter(([_, v]) => v >= 3)
+      .map(([k]) => k)
+      .join(", ");
+
+    setResult(overThree);
+  };
+
+  return (
+    <div className="flex flex-col items-center p-6 space-y-4">
+      <h1 className="text-2xl font-bold">またやらかしたチェッカー</h1>
+
+      <div className="bg-gray-100 text-sm p-4 rounded-xl max-w-xl">
+        <p>① 模試などのまとまった問題数の問題を3周以上解いて、丸付けまでやる</p>
+        <p>② 「誤答」欄に間違えた問題の問題番号をカンマ(,)区切りで打ち込む</p>
+        <p>③ 「出力する」をクリック</p>
+      </div>
+
+      <div className="space-y-2 w-full max-w-xl">
+        {inputs.map((val, i) => (
+          <input
+            key={i}
+            className="w-full p-2 rounded border text-sm placeholder-gray-400"
+            type="text"
+            placeholder="例: 3,5,7"
+            value={val}
+            onChange={(e) => handleInputChange(i, e.target.value)}
+          />
+        ))}
+      </div>
+
+      <button
+        className="bg-blue-100 text-blue-900 px-4 py-2 rounded-xl shadow hover:bg-blue-200"
+        onClick={handleCheck}
+      >
+        出力する
+      </button>
+
+      <div className="w-full max-w-xl pt-4">
+        <p className="text-sm font-bold mb-1">3回以上やっちゃった問題：</p>
+        <textarea
+          className="w-full p-2 border rounded resize-none text-sm"
+          rows={3}
+          readOnly
+          value={result}
+        />
+      </div>
+    </div>
+  );
+}
