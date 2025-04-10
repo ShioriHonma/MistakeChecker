@@ -5,8 +5,9 @@
   <title>またやらかしたチェッカー</title>
   <style>
     body { font-family: sans-serif; padding: 2em; max-width: 600px; margin: auto; }
-    textarea, input { width: 100%; margin-bottom: 1em; padding: 0.5em; }
+    input { width: 100%; margin-bottom: 1em; padding: 0.5em; }
     h1 {display: flex; justify-content: center; }
+    .howto {display: flex; justify-content: center; }
     .center-button-wrapper {display: flex; justify-content: center; }
     .result {display: flex; justify-content: center; }
     button { padding: 0.5em 1.5em; background: #cce; border: none; }
@@ -14,9 +15,9 @@
 </head>
 <body>
   <h1>またやらかしたチェッカー</h1>
-  <p>① 模試などのまとまった問題数の問題を3周以上解いて、丸付けまでやる</p>
-  <p>② 「誤答」欄に間違えた問題の問題番号をカンマ(,)区切りで打ち込む</p>
-  <p>③ 「出力する」をクリック</p>
+  <p class=howto>① 模試などのまとまった問題数の問題を3周以上解いて、丸付けまでやる</p>
+  <p class=howto>② 「誤答」欄に間違えた問題の問題番号をカンマ(,)区切りで打ち込む</p>
+  <p class=howto>③ 「出力する」をクリック</p>
   
   <input id="input1" placeholder="例: 1,2,3" />
   <input id="input2" placeholder="例: 2,3,4" />
