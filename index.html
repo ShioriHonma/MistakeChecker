@@ -6,7 +6,9 @@
   <style>
     body { font-family: sans-serif; padding: 2em; max-width: 600px; margin: auto; }
     textarea, input { width: 100%; margin-bottom: 1em; padding: 0.5em; }
-    h1, center-button-wrapper {display: flex; justify-content: center; }
+    h1 {display: flex; justify-content: center; }
+    center-button-wrapper {display: flex; justify-content: center; }
+    result {display: flex; justify-content: center; }
     button { padding: 0.5em 1em; background: #cce; border: none; }
   </style>
 </head>
@@ -25,8 +27,9 @@
   <button onclick="checkMistakes()">出力する</button>
   </div>
     
-  <p>3回以上やっちゃった問題：</p>
+  <p class="result">3回以上やっちゃった問題：</p>
   <textarea id="output" readonly rows="3"></textarea>
+  
   <script>
     function checkMistakes() {
       const all = [1,2,3,4].flatMap(i =>
