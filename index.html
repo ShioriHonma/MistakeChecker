@@ -6,6 +6,7 @@
   <style>
     body { font-family: sans-serif; padding: 2em; max-width: 600px; margin: auto; }
     textarea, input { width: 100%; margin-bottom: 1em; padding: 0.5em; }
+    h1, center-button-wrapper {display: flex; justify-content: center; }
     button { padding: 0.5em 1em; background: #cce; border: none; }
   </style>
 </head>
@@ -14,11 +15,16 @@
   <p>① 模試などのまとまった問題数の問題を3周以上解いて、丸付けまでやる</p>
   <p>② 「誤答」欄に間違えた問題の問題番号をカンマ(,)区切りで打ち込む</p>
   <p>③ 「出力する」をクリック</p>
+  
   <input id="input1" placeholder="例: 1,2,3" />
   <input id="input2" placeholder="例: 2,3,4" />
   <input id="input3" placeholder="例: 3,4,5" />
   <input id="input4" placeholder="例: 4,5,6" />
+  
+  <div class="center-button-wrapper">
   <button onclick="checkMistakes()">出力する</button>
+  </div>
+    
   <p>3回以上やっちゃった問題：</p>
   <textarea id="output" readonly rows="3"></textarea>
   <script>
