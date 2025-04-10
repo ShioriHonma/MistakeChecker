@@ -25,4 +25,4 @@
 　個人チャット(口頭でも可)
 
 
- 工数メモ　0409PM4hで.java→.exe→.zip化まで JDK同梱断念→1hでWebアプリ化 0410AM1hでcss修正
+ 工数メモ　0409PM4hで.java→.exe→.zipまで作成 簡易JRE同梱断念→1hでWebアプリ化 0410AM1hでcss修正 PM1hで配布準備
